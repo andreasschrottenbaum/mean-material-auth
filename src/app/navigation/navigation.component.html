@@ -1,1 +1,24 @@
-<p>navigation works!</p>
+<nav>
+  <div *ngFor="let group of groups; last as isLast">
+    <button class="nav-toggle-btn" (click)="group.hidden = !group.hidden">
+      {{ group.name }}
+      <mat-icon>{{ group.hidden ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon>
+    </button>
+
+    <mat-nav-list *ngIf="!group.hidden" dense>
+      <ng-container *ngFor="let link of group.links">
+        <a
+          mat-list-item
+          routerLinkActive="active"
+          [routerLink]="link.href"
+          [routerLinkActiveOptions]="{exact: true}"
+          
+          >
+            <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+            {{ link.title }}
+        </a>
+      </ng-container>
+      <hr *ngIf="!isLast">
+    </mat-nav-list>
+  </div>
+</nav>
