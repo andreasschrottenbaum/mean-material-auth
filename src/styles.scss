@@ -1,5 +1,33 @@
 @import '@angular/material/prebuilt-themes/purple-green.css';
 
-html, body { height: 100%; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+// Global classes
+.full-width {
+  width: 100%;
+}
+
