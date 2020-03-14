@@ -15,7 +15,7 @@ export class NotificationService {
     private snackBar: MatSnackBar
   ) { }
 
-  add(notification: Notification) {
+  add = (notification: Notification) => {
     this.snackBar.open(
       notification.message,
       '×',
