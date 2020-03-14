@@ -16,9 +16,13 @@ export class NotificationService {
   ) { }
 
   add(notification: Notification) {
-    this.snackBar.open(notification.message, '×', {
-      duration: notification.duration || 4000,
-      panelClass: ['mat-toolbar', `mat-${notification.status}`]
-    });
+    this.snackBar.open(
+      notification.message,
+      '×',
+      {
+        duration: notification.duration || 4000,
+        panelClass: ['mat-toolbar', `mat-${notification.status}`]
+      }
+    );
   }
 }
