@@ -4,12 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HeadlineService {
-  title = '';
-  description = '';
+  private currentTitle = '';
+  private currentDescription = '';
+
+  get title() { return this.currentTitle; }
+  get description() { return this.currentDescription; }
 
   setTitle = (title: string) => {
-    this.title = title;
-    this.description = null;
+    this.currentTitle = title;
+    this.currentDescription = null;
 
     if (title) {
       document.title = `${title} | MEAN Material Auth`;
@@ -18,5 +21,5 @@ export class HeadlineService {
     }
   }
 
-  setDescription = (description: string) => this.description = description;
+  setDescription = (description: string) => this.currentDescription = description;
 }
