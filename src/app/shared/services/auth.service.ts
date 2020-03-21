@@ -24,9 +24,9 @@ export class AuthService {
   get token() { return this.currentToken; }
 
   login(data) {
-    this.api.post('auth/signin', data)
+    this.api.post('/auth/login', data)
       .subscribe((response: any) => {
-        if (response.status === 'success') {
+        if (response.data && response.token) {
           this.currentUser = response.data;
           this.currentToken = response.token;
 
