@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HeadlineService } from 'src/app/shared/services/headline.service';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,8 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private headline: HeadlineService
+    private headline: HeadlineService,
+    private api: ApiService
   ) {
     this.headline.setTitle('Login');
   }
@@ -25,6 +27,9 @@ export class SigninComponent implements OnInit {
   }
 
   save(data) {
-    console.log(data);
+    this.api.post('/auth/login', data)
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 }
