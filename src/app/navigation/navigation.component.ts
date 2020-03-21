@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import NavigationStructure from './../shared/navigation.structure.json';
+import { RouteGroups } from './../app-routing.module';
 
 @Component({
   selector: 'app-navigation',
@@ -8,9 +8,11 @@ import NavigationStructure from './../shared/navigation.structure.json';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  groups = NavigationStructure;
+  routeGroups;
 
-  constructor() { }
+  constructor() {
+    this.routeGroups = RouteGroups;
+  }
 
   ngOnInit(): void {
   }

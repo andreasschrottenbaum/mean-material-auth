@@ -1,5 +1,5 @@
 <nav>
-  <div *ngFor="let group of groups; last as isLast">
+  <div *ngFor="let group of routeGroups; last as isLast">
     <button class="nav-toggle-btn" (click)="group.hidden = !group.hidden">
       {{ group.name }}
       <mat-icon>{{ group.hidden ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon>
