@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: '//localhost:6900/'
+  backendUrl: 'https://mean-material-auth-backend--andreass2.repl.co'
 };
 
 /*

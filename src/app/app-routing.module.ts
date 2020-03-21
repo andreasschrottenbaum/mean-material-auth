@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { AuthGuard } from './shared/auth.guard';
+
 // components
 import { SigninComponent } from './auth/signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,7 +15,10 @@ export const RouteGroups = [
         icon: 'dashboard',
         href: 'auth/login',
         title: 'Login',
-        component: SigninComponent
+        component: SigninComponent,
+        data: {
+          expectedRole: 'guest'
+        }
       }
     ]
   },
@@ -34,10 +39,12 @@ const buildRoutes$ = (groups: any[]) => {
   const arr = [];
 
   groups.forEach(group => {
-    group.links.forEach((link: { href: any; component: any; }) => {
+    group.links.forEach((link: { href: string; component: any; data?: any; }) => {
       arr.push({
         path: link.href,
-        component: link.component
+        component: link.component,
+        canActivate: [AuthGuard],
+        data: link.data
       });
     });
   });
