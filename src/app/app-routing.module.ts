@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // components
 import { SigninComponent } from './auth/signin/signin.component';
@@ -30,11 +30,11 @@ export const RouteGroups = [
   }
 ];
 
-const buildRoutes$ = groups => {
+const buildRoutes$ = (groups: any[]) => {
   const arr = [];
 
   groups.forEach(group => {
-    group.links.forEach(link => {
+    group.links.forEach((link: { href: any; component: any; }) => {
       arr.push({
         path: link.href,
         component: link.component
