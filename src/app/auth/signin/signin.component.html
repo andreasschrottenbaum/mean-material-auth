@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (submit)="save(loginForm.value)" class="loginForm">
+<form [formGroup]="loginForm" (submit)="auth.login(loginForm.value)" class="loginForm">
   <p>
     <mat-form-field>
       <input matInput type="email" formControlName="email" placeholder="E-Mail">
